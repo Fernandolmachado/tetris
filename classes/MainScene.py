@@ -15,9 +15,9 @@ class MainScene(object):
         pygame.init()
 
         # Screen parameters
-        width = 1080
-        height = 1848
-        self.display = pygame.display.set_mode((width, height))
+        self.width = 1080
+        self.height = 1848
+        self.display = pygame.display.set_mode((self.width, self.height))
 
         # App parameters
         self.clock = pygame.time.Clock()
@@ -30,18 +30,15 @@ class MainScene(object):
         self.reset()
 
     def reset(self):
-        """
-        Class attributes that can be reseted
-        """
+        # Componentes
+        self.board = None
 
-        # Click control attributes
-        self.click_point = None
-        self.clicked = False
+        # input control attributes
+        self.horizontalInput = 0
+        self.fastInput = False
+        self.turnInput = False
 
     def play(self):
-        """
-        Main loop
-        """
         self.setup()
         while self.run:
             self.clock.tick(self.clock_tick)
@@ -50,42 +47,22 @@ class MainScene(object):
             self.draws()
 
     def setup(self):
-        """
-        Setup before loop
-        """
         self.run = True
 
     def checkEvents(self):
-        """
-        Events threats
-        """
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.run = False
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                self.click_point = event.pos
-                self.clicked = True
-            if event.type == pygame.MOUSEBUTTONUP:
-                # assign False to self.clicked here, to implement
-                # continuous pushies
-                self.clicked = False
 
     def transform(self):
-        """
-        Manipulation of images and geometry
-        """
-        if self.clicked:
-            # assign False to self.clicked here, to prevent
-            # continuous pushies insteady of self.events
-            # self.clicked = False
+        if self.fastInput:
+            # Change clock
             pass
-        else:
+        elif self.turnInput:
+            # Rotate group
             pass
 
     def update(self):
-        """
-        Draw objects on screen
-        """
         # Clear screen
         self.display.fill()
 
