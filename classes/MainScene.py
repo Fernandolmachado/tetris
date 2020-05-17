@@ -2,13 +2,9 @@
 # Date...............: 12/05/2020
 
 import pygame
-import sqlite3
 
 
-class Game:
-    """
-    Standard class with pygame structure
-    """
+class MainScene(object):
     def __init__(self):
         # Used to prevent high latency of buffer
         # Arguments(frequency, size, channel, buffer)
@@ -31,9 +27,9 @@ class Game:
         # Sound instatiations
         # sound = pygame.mixer.Sound("file")
 
-        self.restart()
+        self.reset()
 
-    def restart(self):
+    def reset(self):
         """
         Class attributes that can be reseted
         """
@@ -42,7 +38,7 @@ class Game:
         self.click_point = None
         self.clicked = False
 
-    def game(self):
+    def play(self):
         """
         Main loop
         """
@@ -59,7 +55,7 @@ class Game:
         """
         self.run = True
 
-    def events(self):
+    def checkEvents(self):
         """
         Events threats
         """
@@ -74,7 +70,7 @@ class Game:
                 # continuous pushies
                 self.clicked = False
 
-    def render(self):
+    def transform(self):
         """
         Manipulation of images and geometry
         """
@@ -86,7 +82,7 @@ class Game:
         else:
             pass
 
-    def draws(self):
+    def update(self):
         """
         Draw objects on screen
         """
