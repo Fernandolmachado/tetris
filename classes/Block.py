@@ -3,7 +3,11 @@ import pygame
 
 
 class Block(object):
-    def __init__(self, posx: int, posy: int, width: int, height: int, color: pygame.Color.Color()):
+    def __init__(
+                    self, posx: int, posy: int,
+                    width: int, height: int,
+                    color: pygame.Color.Color
+                ):
         self.width = width
         self.height = height
         self.posx = posx
@@ -39,5 +43,9 @@ class Block(object):
         self.posx += hor
         self.posy += vert
 
-    def draw(self):
-        pygame.draw.rect()
+    def draw(self, surface: pygame.Surface):
+        pygame.draw.rect(
+            surface,
+            self.color,
+            [self.posx, self.posy, self.width, self.height]
+        )
