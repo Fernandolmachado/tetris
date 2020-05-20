@@ -33,9 +33,6 @@ class Group(object):
     def getCenter(self) -> tuple:
         return (self.centerx, self.centery)
 
-    def getGap(self) -> int:
-        return self.gap
-
     def getBlocks(self) -> tuple:
         return self.blocks
 
