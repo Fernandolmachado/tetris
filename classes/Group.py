@@ -3,11 +3,11 @@ import pygame
 
 
 class Group(object):
-    def __init__(self, posx: int, posy: int, blockSize: int):
+    def __init__(self, posx: int, posy: int, blockSize: int, grade: int):
         self.posx = posx
         self.posy = posy
         self.blockSize = blockSize
-        self.size = blockSize * 3
+        self.size = blockSize * grade
         self.centerx = self.size - self.posx
         self.centery = self.size - self.posy
         self.blocks = list()

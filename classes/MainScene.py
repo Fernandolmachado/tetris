@@ -4,6 +4,7 @@
 import pygame
 
 from classes.GroupL import GroupL
+from classes.GroupO import GroupO
 
 
 class MainScene(object):
@@ -42,7 +43,7 @@ class MainScene(object):
         self.turnInput = False
 
         # Teste
-        self.group = GroupL(100, 100, 20)
+        self.group = GroupO(100, 100, 20)
 
     def play(self):
         self.setup()

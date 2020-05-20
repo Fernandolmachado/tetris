@@ -7,7 +7,7 @@ from classes.Block import Block
 
 class GroupL(Group):
     def __init__(self, posx: int, posy: int, blockSize: int):
-        super().__init__(posx, posy, blockSize)
+        super().__init__(posx, posy, blockSize, 3)
         self.color = pygame.Color(0xFF, 0x00, 0x7D)
         self.blocks = list()
         self._generateBlocks()
