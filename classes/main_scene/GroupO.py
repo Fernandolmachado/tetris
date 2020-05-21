@@ -1,3 +1,5 @@
+# Author............: Fernando Machado
+# Date...............: 19/05/2020
 
 import pygame
 
@@ -6,17 +8,37 @@ from classes.main_scene.Block import Block
 
 
 class GroupO(Group):
+    """
+    Classe para construção e manipulação da forma O.
+    Parâmetros:
+        posx = Posição lateral esquerda da Surface à partir da origem
+                da tela (0).
+        posx = Posição superior da Surface à partir da origem da tela (0).
+        block_size = Dimensão (base e altura) dos blocos da forma.
+    """
     def __init__(self, posx: int, posy: int, block_size: int):
         super().__init__(posx, posy, block_size, 2)
-        self.color = pygame.Color(0xFF, 0x00, 0x00)
+        self.color = pygame.Color(0xFF, 0x00, 0x00)     # Vermelho
         self.blocks = list()
         self._generate_blocks()
 
     def rotate(self):
-        self.surface = pygame.transform.rotate(self.surface, 90)
-        self._redefineAngle()
+        """
+        Gira a Surface 90 graus no sentido horário e atualiza posições
+        dos blocos presentes.
+        Parâmentros: Nenhum.
+        Retorno: Nenhum.
+        """
+        self.surface = pygame.transform.rotate(self.surface, -90)
+        self._redefine_angle()
 
     def _generate_blocks(self):
+        """
+        Desenha os blocos na Surface de acordo com sua forma e os adiciona
+        a lista blocks.
+        Parâmentros: Nenhum.
+        Retorno: Nenhum.
+        """
         # Bloco central
         self.blocks.append(
             Block(
@@ -64,6 +86,12 @@ class GroupO(Group):
         for block in self.blocks:
             block.draw(self.surface)
 
-    def _redefineAngle(self):
-        # Não precisa modificar o rect dos blocos
+    def _redefine_angle(self):
+        """
+        Redefine as posições dos blocos, de acordo com o ângulo da
+        Surface.
+        Parâmentros: Nenhum.
+        Retorno: Nenhum.
+        """
+        # Não precisa modificar o rect dos blocos para essa forma
         pass

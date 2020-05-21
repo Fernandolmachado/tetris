@@ -1,3 +1,5 @@
+# Author............: Fernando Machado
+# Date...............: 19/05/2020
 
 import pygame
 
