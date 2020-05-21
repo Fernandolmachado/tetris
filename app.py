@@ -1,6 +1,5 @@
 
+from classes import Game
 
-from classes.MainScene import MainScene
-
-app = MainScene()
-app.play()
+app = Game()
+app.run()
